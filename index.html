@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>کلینیک تخصصی زیبایی مستانه</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #718b60;
+      --green-dark: #5d754f;
+      --gold: #a8997d;
+      --text: #191919;
+      --cream: #faf9f6;
+      --border: #e8e5df;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      height: 108px;
+      background: rgba(255, 255, 255, 0.97);
+      display: flex;
+      align-items: center;
+      padding: 0 4%;
+      border-bottom: 1px solid #eeeeee;
+      position: relative;
+      z-index: 20;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1500px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    /* Logo */
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      order: 1;
+    }
+
+    .logo-icon {
+      font-size: 54px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .logo-text {
+      text-align: right;
+    }
+
+    .logo-text h1 {
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 12px;
+      margin-top: -3px;
+      color: #555;
+    }
+
+    /* Navigation */
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      order: 2;
+    }
+
+    nav > a,
+    .dropdown-title {
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      padding: 10px 0;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    nav > a::after,
+    .dropdown-title::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--green);
+      transition: 0.3s;
+    }
+
+    nav > a:hover::after,
+    .dropdown-title:hover::after {
+      width: 100%;
+    }
+
+    .active::after {
+      width: 100% !important;
+    }
+
+    /* Product dropdown */
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 42px;
+      right: -25px;
+      width: 170px;
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      padding: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.25s;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f3f5ef;
+      color: var(--green-dark);
+    }
+
+    /* Header actions */
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      order: 3;
+    }
+
+    .phone {
+      width: 52px;
+      height: 52px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+    }
+
+    .appointment-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 32px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(113, 139, 96, 0.16);
+    }
+
+    .appointment-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      height: 525px;
+      position: relative;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.02),
+          rgba(255,255,255,0.15)
+        ),
+        url("./hero.jpg");
+
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: 50%;
+      margin-right: 7%;
+      text-align: right;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h2 {
+      font-size: clamp(35px, 4vw, 58px);
+      line-height: 1.7;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 2.1;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    .medical-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green);
+      color: white;
+      padding: 17px 34px;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(113, 139, 96, 0.2);
+    }
+
+    .medical-button:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+    }
+
+    .bag-icon {
+      font-size: 20px;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services {
+      background: #fff;
+      min-height: 135px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-left: 1px solid var(--border);
+      padding: 20px 10px;
+      transition: 0.3s;
+    }
+
+    .service:last-child {
+      border-left: none;
+    }
+
+    .service:hover {
+      background: #fafbf8;
+    }
+
+    .service-icon {
+      font-size: 31px;
+      color: var(--gold);
+      height: 40px;
+    }
+
+    .service span {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: white;
+      padding: 30px 5%;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1450px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .top {
+      width: 44px;
+      height: 44px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    .mobile-menu {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1000px) {
+
+      header {
+        height: 85px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+        order: 2;
+      }
+
+      .header-actions {
+        order: 3;
+      }
+
+      .appointment-btn {
+        padding: 11px 18px;
+        font-size: 13px;
+      }
+
+      .phone {
+        width: 42px;
+        height: 42px;
+      }
+
+      .logo-text h1 {
+        font-size: 26px;
+      }
+
+      .logo-icon {
+        font-size: 40px;
+      }
+
+      .hero {
+        height: 600px;
+        background-position: 35% center;
+      }
+
+      .hero-content {
+        width: 55%;
+        margin-right: 5%;
+      }
+
+      .hero-content h2 {
+        font-size: 38px;
+      }
+
+      .services {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .service {
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 0 18px;
+      }
+
+      .logo {
+        gap: 5px;
+      }
+
+      .logo-icon {
+        font-size: 34px;
+      }
+
+      .logo-text h1 {
+        font-size: 23px;
+      }
+
+      .logo-text span {
+        font-size: 9px;
+      }
+
+      .phone {
+        display: none;
+      }
+
+      .appointment-btn {
+        padding: 10px 14px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        font-size: 25px;
+      }
+
+      .hero {
+        height: 650px;
+        background-position: 28% center;
+        align-items: flex-start;
+      }
+
+      .hero-content {
+        width: 100%;
+        margin: 0;
+        padding: 80px 25px 0;
+        text-align: center;
+        background: linear-gradient(
+          rgba(255,255,255,0.8),
+          rgba(255,255,255,0.05)
+        );
+        height: 100%;
+      }
+
+      .hero-content h2 {
+        font-size: 31px;
+        line-height: 1.8;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+      }
+
+      .medical-button {
+        padding: 14px 25px;
+        font-size: 14px;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service {
+        min-height: 110px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+
+        <div class="logo-icon">♧</div>
+
+        <div class="logo-text">
+          <h1>مستانه</h1>
+          <span>کلینیک تخصصی زیبایی</span>
+        </div>
+
+      </a>
+
+
+      <!-- Navigation -->
+      <nav>
+
+        <a href="#" class="active">
+          صفحه اصلی
+        </a>
+
+        <a href="#">
+          خدمات
+        </a>
+
+        <a href="#">
+          درباره ما
+        </a>
+
+        <a href="#">
+          پزشکان
+        </a>
+
+        <a href="#">
+          گالری
+        </a>
+
+        <a href="#">
+          مقالات
+        </a>
+
+        <a href="#">
+          تماس با ما
+        </a>
+
+        <!-- Medical products -->
+        <div class="dropdown">
+
+          <div class="dropdown-title">
+            محصولات پزشکی
+          </div>
+
+          <div class="dropdown-menu">
+
+            <a href="#">
+              خرید تکی
+            </a>
+
+            <a href="#">
+              خرید عمده
+            </a>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+
+      <!-- Header actions -->
+      <div class="header-actions">
+
+        <a href="tel:+989000000000" class="phone">
+          ☎
+        </a>
+
+        <a href="#" class="appointment-btn">
+          رزرو نوبت
+        </a>
+
+      </div>
+
+
+      <div class="mobile-menu">
+        ☰
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <h2>
+          زیبایی، هنر ماست<br>
+          اعتماد شما، افتخار ما
+        </h2>
+
+        <p>
+          ارائه خدمات تخصصی پوست، مو و زیبایی
+          <br>
+          در محیطی لوکس و استاندارد
+        </p>
+
+        <a href="#" class="medical-button">
+
+          <span class="bag-icon">♧</span>
+
+          فروش لوازم پزشکی
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services">
+
+      <a href="#" class="service">
+        <div class="service-icon">✿</div>
+        <span>پاکسازی پوست</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">♙</div>
+        <span>نخ لیفت</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">♢</div>
+        <span>مزوتراپی</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">⌁</div>
+        <span>لیزر موهای زائد</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">♙</div>
+        <span>جوانسازی پوست</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">╱</div>
+        <span>لیپوتراپی</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">✦</div>
+        <span>تزریق فیلر</span>
+      </a>
+
+      <a href="#" class="service">
+        <div class="service-icon">♙</div>
+        <span>تزریق بوتاکس</span>
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="socials">
+
+        <a href="#" class="social">◎</a>
+        <a href="#" class="social">➤</a>
+        <a href="#" class="social">◉</a>
+
+      </div>
+
+      <div class="copyright">
+        © کلینیک تخصصی زیبایی مستانه - تمامی حقوق محفوظ است.
+      </div>
+
+      <a href="#" class="top">
+        ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+  </html>
